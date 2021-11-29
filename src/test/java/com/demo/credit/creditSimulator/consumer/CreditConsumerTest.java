@@ -44,6 +44,21 @@ public class CreditConsumerTest {
         assertThat(answer).isTrue();
     }
 
+    //Check reject evaluation according range rules
+    @Test
+    public void testcase1Reject() {
+        //check first range test case
+        String name = "peter";
+        String email = "peter@email.com";
+        Integer amount = 300000; // $300.000
+        Integer quotas = 2;
+        Integer income = 1000000; // $1.000.000
+        CreditConsumer consumer = new CreditConsumer(name, email, amount, quotas, income);
+
+        //check evaluation that's correct
+        assertThat(consumer.evaluate()).isFalse();
+    }
+/*
     @Test
     public void testCase2_ok() {
         //check second range test case
@@ -72,22 +87,8 @@ public class CreditConsumerTest {
         assertThat(consumer.evaluate()).isFalse();
     }
 
-    //Check reject evaluation according range rules
-    @Test
-    public void testcase1Reject() {
-        //check first range test case
-        String name = "peter";
-        String email = "peter@email.com";
-        Integer amount = 300000; // $300.000
-        Integer quotas = 2;
-        Integer income = 1000000; // $1.000.000
-        CreditConsumer consumer = new CreditConsumer(name, email, amount, quotas, income);
-
-        //check evaluation that's correct
-        assertThat(consumer.evaluate()).isFalse();
-    }
-
-
+*/
+/*
 
     @Test
     public void testCase3_ok() {
@@ -116,5 +117,5 @@ public class CreditConsumerTest {
         //check evaluation that's correct
         assertThat(consumer.evaluate()).isFalse();
     }
-
+*/
 }
